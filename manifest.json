@@ -1,0 +1,27 @@
+{
+    "name": "StudySuite",
+    "version": "0.0.1",
+    "description": "Replace the new tab page with your personal launchpad to achieve increased productivity and organization.",
+    "manifest_version": 3,
+    "author": "Rishabh Jain",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "StudySuite",
+        "default_icon": "img/favicon.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "permissions": ["geolocation", "storage", "tabs"],
+    "icons": {
+        "16": "img/16.png",
+        "32": "img/32.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/site-blocker.js"]
+    }]
+}
